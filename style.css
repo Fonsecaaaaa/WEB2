@@ -1,0 +1,113 @@
+/* Reset: remove margens e espaçamentos padrão do navegador que podem atrapalhar */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Aplica a fonte que importamos */
+    background-color: #121212;       /* Cor de fundo escura (estilo Spotify) */
+    color: #fff;                     /* Texto branco para dar contraste */
+    line-height: 1.5;                /* Espaçamento entre as linhas de texto */
+}
+
+/* Estilização do cabeçalho */
+header {
+    text-align: center;
+    padding: 4rem 1rem;
+    /* Cria um degradê que começa no azul e vai para o quase preto */
+    background: linear-gradient(135deg, #3b82f6, #191414);
+}
+
+header h1 { 
+    font-size: 2.5rem; 
+    letter-spacing: 1px; /* Espaço entre as letras do título */
+}
+
+header p { 
+    color: #ccc;          /* Texto do subtítulo um pouco mais cinza */
+    font-style: italic; 
+}
+
+/* Configuração da grade (Grid) da galeria */
+.gallery-container {
+    display: grid;
+    /* auto-fit: cria quantas colunas couberem na tela automaticamente */
+    /* minmax: a coluna tem no mínimo 250px e no máximo 1 fração do espaço disponível */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;            /* Espaço entre os cartões */
+    padding: 3rem 2rem;
+    max-width: 1200px;    /* Limita a largura em telas muito grandes */
+    margin: auto;         /* Centraliza o container na tela */
+}
+
+/* Estilo do cartão do álbum */
+.album-card {
+    background: #1e1e1e;
+    border-radius: 10px;  /* Bordas arredondadas */
+    overflow: hidden;     /* Garante que o zoom da imagem não "escape" das bordas */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suaviza as mudanças no hover */
+    cursor: pointer;
+}
+
+/* O que acontece quando passamos o mouse no cartão */
+.album-card:hover {
+    transform: translateY(-8px);                /* Move o cartão um pouco para cima */
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4); /* Sombra azul brilhante */
+}
+
+/* Container da imagem */
+.image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 3px solid #3b82f6; /* Linha azul abaixo da foto */
+}
+
+/* Estilo da foto do álbum */
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;    /* Força a imagem a ser sempre um quadrado (formato de capa) */
+    object-fit: cover;      /* Corta a imagem para preencher o quadrado sem achatar */
+    display: block;
+    transition: transform 0.4s ease; /* Tempo da animação de zoom */
+}
+
+/* Zoom na imagem quando o mouse entra no card */
+.album-card:hover img {
+    transform: scale(1.08); /* Aumenta a foto em 8% */
+}
+
+/* Espaçamento dos textos abaixo da foto */
+.album-info { padding: 1.2rem; }
+
+.album-info h2 {
+    font-size: 1.2rem;
+    white-space: nowrap;    /* Impede que o título pule linha */
+    overflow: hidden;       /* Esconde o texto que sobrar */
+    text-overflow: ellipsis; /* Se o nome for muito longo, coloca "..." no final */
+}
+
+.album-info h3 {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* Estilo da pílula do ano de lançamento */
+.year {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.15); /* Fundo azul bem clarinho/transparente */
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
